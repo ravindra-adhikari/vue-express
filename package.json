@@ -1,0 +1,26 @@
+{
+  "name": "express-mongo-app",
+  "version": "1.0.0",
+  "description": "Fullstack vue and express app with mongodb",
+  "main": "index.js",
+  "scripts": {
+    "strat": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "keywords": [
+    "vue",
+    "express",
+    "mongodb"
+  ],
+  "author": "ravindra",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
