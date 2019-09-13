@@ -5,9 +5,14 @@ const url = 'mongodb+srv://ravi:testing@123@mlab-xlbst.mongodb.net/test?retryWri
 const router = express.Router()
 
 //Get Post
-router.get('/',async(req, res) =>{
+router.get('/',async(req, res,next) =>{
+        try{
         const posts = await loadPostCollecion()
         res.send(await posts.find({}).toArray())
+        }
+        catch(err){
+            next(err)
+        }
 })
 
 //Add Post
@@ -32,7 +37,7 @@ router.delete("/:id",async(req, res) => {
 
 
 async function loadPostCollecion(){
-    const client = await mongodb.MongoClient.connect(url,{ useUnifiedTopology: true,useNewUrlParser: true })
+    const client = await mongodb.MongoClient.connect(url,{ useUnifiedTopology: true , useNewUrlParser: true })
         return client.db('vue-express').collection('posts')
     
 }
